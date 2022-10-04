@@ -67,3 +67,8 @@ body{
     .source {
         text-align: center;
     }
+
+    .weather-temperature .active {
+        color: black;
+        cursor: default;
+    }

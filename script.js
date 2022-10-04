@@ -61,6 +61,8 @@ function formatDate (date) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
     let temperature = temperatureElement.innerHTML;
+    fahrenheitLink.classList.remove("active");
+    celsiusLink.classList.add("active");
     temperatureElement.innerHTML = Math.round((temperature - 32) * 5/9);
   }
   
@@ -68,6 +70,8 @@ function formatDate (date) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
     let temperature = temperatureElement.innerHTML;
+    fahrenheitLink.classList.add("active");
+    celsiusLink.classList.remove("active");
     temperatureElement.innerHTML = Math.round((temperature * 9/5) + 32);
   }
   
