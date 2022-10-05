@@ -21,12 +21,13 @@ function formatDate (date) {
     return `${days[dayIndex]} ${hours}:${minutes}`;
   }
   
-  function displayForecast(){
+  function displayForecast(response){
     let forecastElement = document.querySelector("#forecast");
 
     let forecastHTML = `<div class="row">`;
     let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-    days.forEach(function(day) {
+    days.forEach(function (day)
+      {
       forecastHTML =  forecastHTML + 
       `
     <div class="col-2">
@@ -50,6 +51,12 @@ function formatDate (date) {
     forecastElement.innerHTML = forecastHTML;
   }
 
+  function getForecast(coordinates) {
+    let apiKey = "2b6fdad0cbd018949c50c70f72250726";
+    let apiUrl =`https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(displayForecast);
+  }
+
   function displayWeatherCondition(response) {
     console.log(response.data);
     document.querySelector("#city").innerHTML = response.data.name;
@@ -65,7 +72,8 @@ function formatDate (date) {
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   }
 
-
+  getForecast(response.data.coord);
+  
   function search(event) {
   event.preventDefault();
   let apiKey = "2b6fdad0cbd018949c50c70f72250726";
@@ -76,7 +84,7 @@ function formatDate (date) {
   
   function searchLocation(position) {
     let apiKey = "2b6fdad0cbd018949c50c70f72250726";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
   
     axios.get(apiUrl).then(displayWeatherCondition);
   }
@@ -117,8 +125,7 @@ function formatDate (date) {
   
   let fahrenheitLink = document.querySelector("#fahrenheit-link");
   fahrenheitLink.addEventListener("click", convertToFahrenheit );
-  
-  displayForecast();
+
 
   let currentLocationButton = document.querySelector
   ("#current-location-button");
