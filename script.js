@@ -21,6 +21,35 @@ function formatDate (date) {
     return `${days[dayIndex]} ${hours}:${minutes}`;
   }
   
+  function displayForecast(){
+    let forecastElement = document.querySelector("#forecast");
+
+    let forecastHTML = `<div class="row">`;
+    let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+    days.forEach(function(day) {
+      forecastHTML =  forecastHTML + 
+      `
+    <div class="col-2">
+      <div class="forecast-date">${day}</div>
+      <img 
+      src="http://openweathermap.org/img/wn/01d@2x.png"
+      alt=""
+      width="45"
+      />
+  <div class="forecast-temperatures">
+    <span class="forecast-max">
+    72°</span> 
+   <span class="forecast-min">
+   50°</span>
+   </div>
+  </div>
+  `;
+    })
+
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+  }
+
   function displayWeatherCondition(response) {
     console.log(response.data);
     document.querySelector("#city").innerHTML = response.data.name;
@@ -35,7 +64,7 @@ function formatDate (date) {
     let iconElement = document.querySelector("#icon");
     iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   }
-   
+
 
   function search(event) {
   event.preventDefault();
@@ -89,6 +118,8 @@ function formatDate (date) {
   let fahrenheitLink = document.querySelector("#fahrenheit-link");
   fahrenheitLink.addEventListener("click", convertToFahrenheit );
   
+  displayForecast();
+
   let currentLocationButton = document.querySelector
   ("#current-location-button");
   currentLocationButton.addEventListener("click", getCurrentLocation);

@@ -29,13 +29,13 @@
          <input 
             type="submit"
              value="Search"
-             class="form-control btn btn-primary"
+             class="form-control btn btn-light"
         />
     </div>
     <div class="col-3">
-        <button class="btn btn-success w-100"
+        <button class="btn btn-light w-45"
         id="currentLocationButton">
-        Current 📍
+        📍
     </button>
     </div>
     </div>
@@ -75,93 +75,24 @@
         </div>
 </div>
 </br>
-<div class="weather-forecast">
+<div class="weather-forecast" id="forecast">
     <div class="row">
-        <div class="col-2">
-            <div class="forecast-date">
-           Mon
-           </div>
+      <div class="col-2">
+        <div class="forecast-date">Thu</div>
+        <img 
+        src="http://openweathermap.org/img/wn/01d@2x.png"
+        alt=""
+        width="45"
+        />
+    <div class="forecast-temperatures">
+      <span class="forecast-max">
+      72°</span> 
+     <span class="forecast-min">
+     50°</span>
      </div>
-     <div class="col-2">
-        <div class="forecast-date">
-            Tue
-            </div>
- </div>
- <div class="col-2">
-    <div class="forecast-date">
-        Wed
-        </div>
-</div>
-<div class="col-2">
-    <div class="forecast-date">
-        Thu
-        </div>
-</div>
-<div class="col-2">
-    <div class="forecast-date">
-        Fri
-        </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-2">
-        <img src="http://openweathermap.org/img/wn/01d@2x.png"
-        width="45"/>
- </div>
- <div class="col-2">
-    <img src="http://openweathermap.org/img/wn/01d@2x.png"
-    width="45"/>
-</div>
-<div class="col-2">
-    <img src="http://openweathermap.org/img/wn/01d@2x.png"
-    width="45"/>
-</div>
-<div class="col-2">
-    <img src="http://openweathermap.org/img/wn/01d@2x.png"
-    width="45"/>
-</div>
-<div class="col-2">
-    <img src="http://openweathermap.org/img/wn/01d@2x.png"
-    width="45"/>
-</div>
-</br>
-</br>
-
-<div class="row high-and-low">
-    <div class="col-2">
-        <span class="forecast-max">
-    72°</span> 
-        <span class="forecast-min">
-    50°</span>
- </div>
- <div class="col-2">
-    <span class="forecast-max">
-        72°</span> 
-            <span class="forecast-min">
-        50°</span>
-</div>
-<div class="col-2">
-    <span class="forecast-max">
-        72°</span> 
-            <span class="forecast-min">
-        50°</span>
-</div>
-<div class="col-2">
-    <span class="forecast-max">
-        72°</span> 
-            <span class="forecast-min">
-        50°</span>
-</div>
-<div class="col-2">
-    <span class="forecast-max">
-        72°</span> 
-            <span class="forecast-min">
-        50°</span>
-</div>
-</div>
-</div>
-</div>
+   </div>
+  </div>
  </div>
  <script src="./script.js"></script>
  <div class="source">
