@@ -31,7 +31,7 @@ body{
     .weather-app {
         border: 1px solid #dadde1;
         padding: 15px;
-        margin: 20 px;
+        margin: 20px;
         max-width: 600px;
         border-radius: 10px;
         margin: auto;
@@ -71,4 +71,24 @@ body{
     .weather-temperature .active {
         color: black;
         cursor: default;
+    }
+
+    .weather-forecast {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .forecast-date {
+        font-size: 16px;
+        opacity: 0.5;
+    
+    }
+
+    .forecast-max {
+        font-size: 14px;
+    }
+
+    .forecast-min {
+        font-size: 14px;
+        opacity: 0.5;
     }
