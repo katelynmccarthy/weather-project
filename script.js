@@ -100,7 +100,7 @@ function formatDate (date) {
   
   function searchLocation(position) {
     let apiKey = "2b6fdad0cbd018949c50c70f72250726";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
   
     axios.get(apiUrl).then(displayWeatherCondition);
   }
@@ -110,24 +110,6 @@ function formatDate (date) {
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
   
-  function convertToCelsius(event) {
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperature");
-    let temperature = temperatureElement.innerHTML;
-    fahrenheitLink.classList.remove("active");
-    celsiusLink.classList.add("active");
-    temperatureElement.innerHTML = Math.round((temperature - 32) * 5/9);
-  }
-  
-  function convertToFahrenheit(event) {
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperature");
-    let temperature = temperatureElement.innerHTML;
-    fahrenheitLink.classList.add("active");
-    celsiusLink.classList.remove("active");
-    temperatureElement.innerHTML = Math.round((temperature * 9/5) + 32);
-  }
-  
   let dateElement = document.querySelector("#date");
   let currentTime = new Date();
   let searchForm = document.querySelector("#search-form");
@@ -135,11 +117,5 @@ function formatDate (date) {
   searchForm.addEventListener("submit", search);
   
   dateElement.innerHTML = formatDate(currentTime);
-  
-  let celsiusLink = document.querySelector("#celsius-link");
-  celsiusLink.addEventListener("click", convertToCelsius );
-  
-  let fahrenheitLink = document.querySelector("#fahrenheit-link");
-  fahrenheitLink.addEventListener("click", convertToFahrenheit );
 
   search("Cleveland");
