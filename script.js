@@ -141,7 +141,6 @@ function displayCityAndTemp(response) {
   let lowTempElement = document.querySelector("#temp-low");
   let descriptionElement = document.querySelector("#description");
   let iconElement = document.querySelector("#icon");
-  celsiusTemperature = response.data.main.temp;
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
