@@ -32,9 +32,6 @@ img {
     padding: 30px;
   }
   
-  .search-menu {
-    justify-content: space-between;
-  }
   
   .search-bar {
     padding: 10px 15px;
@@ -89,7 +86,6 @@ img {
     margin: 30px 0 30px;
     font-weight: bold;
     text-align: center;
-    justify-content: space-evenly;
   }
   
   .code-link {
