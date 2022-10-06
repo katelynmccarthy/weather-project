@@ -1,3 +1,46 @@
+let currentDate = document.querySelector("#current-date");
+let currentTime = document.querySelector("#current-time");
+let now = new Date();
+let date = now.getDate();
+let year = now.getFullYear();
+let weekday = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+let minutes = ("0" + now.getMinutes()).slice(-2);
+
+currentDate.innerHTML = `${weekday[now.getDay()]}, ${
+  months[now.getMonth()]
+} ${date}, ${year}`;
+
+currentTime.innerHTML = `Last updated:  ${now.getHours()}:${minutes}`;
+
+let unit = "imperial";
+let searchedCity = document.querySelector("#search");
+let apiKey = "2b6fdad0cbd018949c50c70f72250726";
+let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity.value}&units=${unit}&appid=${apiKey}`;
+
+axios.get(weatherApiUrl).then(displayCityAndTemp);
+
 function displayLocalTemp(response) {
   let currentCity = document.querySelector("#searched-city");
   let currentTemp = document.querySelector("#current-display-temp");
@@ -113,49 +156,6 @@ function displayCityAndTemp(response) {
 
   getForecast(response.data.coord);
 }
-
-let currentDate = document.querySelector("#current-date");
-let currentTime = document.querySelector("#current-time");
-let now = new Date();
-let date = now.getDate();
-let year = now.getFullYear();
-let weekday = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let minutes = ("0" + now.getMinutes()).slice(-2);
-
-currentDate.innerHTML = `${weekday[now.getDay()]}, ${
-  months[now.getMonth()]
-} ${date}, ${year}`;
-
-currentTime.innerHTML = `Last updated:  ${now.getHours()}:${minutes}`;
-
-let unit = "imperial";
-let searchedCity = document.querySelector("#search");
-let apiKey = "2b6fdad0cbd018949c50c70f72250726";
-let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity.value}&units=${unit}&appid=${apiKey}`;
-
-axios.get(weatherApiUrl).then(displayCityAndTemp);
 
 let currentLocationButton = document.querySelector("#current-location-btn");
 
