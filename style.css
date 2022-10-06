@@ -10,13 +10,22 @@ img {
   form {
     margin-bottom: 50px;
   }
+
+  footer {
+    text-align: center;
+    opacity: 0.7;
+  }
+  
+  footer a {
+    color: #247291; 
+  }
   
   .weather-app {
     background: linear-gradient(111.5deg, rgb(228, 247, 255) 21.9%, rgb(255, 216, 194) 92.2%);
     border: none;
     border-radius: 30px;
     box-shadow: 0px 11px 22px rgb(0 0 0 / 30%);
-    color: #006a71;
+    color: #247291; 
     font-family: "Quicksand", sans-serif;
     max-width: 700px;
     margin: 40px auto;
@@ -34,7 +43,7 @@ img {
   }
   
   .menu-btn {
-    color: #006a71;
+    color: #247291; 
     background: #fff;
     border: none;
     border-radius: 12px;
@@ -44,7 +53,7 @@ img {
   }
   
   .menu-btn:hover {
-    background: #006a71;
+    background: #247291; 
     color: #fff;
   }
   
@@ -111,12 +120,6 @@ img {
     margin: 0;
   }
   
-  footer {
-    text-align: center;
-    opacity: 0.7;
+  .source-link {
+    text-decoration: none;
   }
-  
-  footer a {
-    color: #006a71;
-  }
-  

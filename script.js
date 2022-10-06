@@ -12,7 +12,7 @@ function displayLocalTemp(response) {
   currentCity.innerHTML = `${response.data.name}`;
   currentTemp.innerHTML = `${responseTemp}`;
   humidityElement.innerHTML = `${response.data.main.humidity}%`;
-  windSpeedElement.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
+  windSpeedElement.innerHTML = `${Math.round(response.data.wind.speed)} mph`;
   highTempElement.innerHTML = Math.round(response.data.main.temp_max);
   lowTempElement.innerHTML = Math.round(response.data.main.temp_min);
   descriptionElement.innerHTML = response.data.weather[0].main;
@@ -20,7 +20,6 @@ function displayLocalTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  console.log(response);
 
   getForecast(response.data.coord);
 }
@@ -30,7 +29,6 @@ function searchCurrentLocation(event) {
     let currentLocationLat = response.coords.latitude;
     let currentLocationLon = response.coords.longitude;
     let unit = "imperial";
-
     let apiKey = "2b6fdad0cbd018949c50c70f72250726";
     let coordsApiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLocationLat}&lon=${currentLocationLon}&units=${unit}&appid=${apiKey}`;
 
@@ -48,7 +46,6 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -88,7 +85,6 @@ function getForecast(coordinates) {
   let apiKey = "2b6fdad0cbd018949c50c70f72250726";
   let units = "imperial";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -114,23 +110,15 @@ function displayCityAndTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  console.log(response);
 
   getForecast(response.data.coord);
 }
 
-//DISPLYING DATE AND TIME
-
 let currentDate = document.querySelector("#current-date");
-
 let currentTime = document.querySelector("#current-time");
-
 let now = new Date();
-
 let date = now.getDate();
-
 let year = now.getFullYear();
-
 let weekday = [
   "Sunday",
   "Monday",
@@ -140,7 +128,6 @@ let weekday = [
   "Friday",
   "Saturday",
 ];
-
 let months = [
   "January",
   "February",
@@ -155,7 +142,6 @@ let months = [
   "November",
   "December",
 ];
-
 let minutes = ("0" + now.getMinutes()).slice(-2);
 
 currentDate.innerHTML = `${weekday[now.getDay()]}, ${
@@ -164,14 +150,9 @@ currentDate.innerHTML = `${weekday[now.getDay()]}, ${
 
 currentTime.innerHTML = `Last updated:  ${now.getHours()}:${minutes}`;
 
-// DISPLAYING SEARCHED CITY
-
-//LOCATON AND WEATHER API
 let unit = "imperial";
 let searchedCity = document.querySelector("#search");
-
 let apiKey = "2b6fdad0cbd018949c50c70f72250726";
-
 let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity.value}&units=${unit}&appid=${apiKey}`;
 
 axios.get(weatherApiUrl).then(displayCityAndTemp);
